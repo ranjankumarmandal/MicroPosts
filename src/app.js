@@ -8,7 +8,7 @@ document.querySelector('#posts').addEventListener('click', enableEdit);    // ed
 document.querySelector('.card-form').addEventListener('click', cancelEdit);    // cancel edit state
 
 function getPosts(e) {
-    http.get('http://localhost:3000/posts')
+    http.get('https://ranjan-microposts.herokuapp.com/posts')
         .then((data) => ui.showPosts(data))
         .catch((e) => console.log(e));
 }
@@ -24,12 +24,12 @@ function submitPost(e) {
     } else {
         if(hiddenId === '') {
             // create a post
-            http.post('http://localhost:3000/posts', data) // create pose
+            http.post('https://ranjan-microposts.herokuapp.com/posts', data) // create pose
                 .then(data => { ui.showAlert('Post added', 'alert alert-success'); ui.clearFields(); getPosts(); })
                 .catch((e) => console.log(e));
         } else {
             // update a post
-            http.put(`http://localhost:3000/posts/${hiddenId}`, data)
+            http.put(`https://ranjan-microposts.herokuapp.com/posts/${hiddenId}`, data)
                 .then((data) => { ui.showAlert('Post updated', 'alert alert-success'); ui.changeFormState('add'); getPosts(); })
         }
     
@@ -41,7 +41,7 @@ function deletePost(e) {
     if(e.target.parentElement.classList.contains('delete')) {
         const id = e.target.parentElement.dataset.id;
         if(confirm('Are you sure?')) {
-            http.delete(`http://localhost:3000/posts/${id}`)
+            http.delete(`https://ranjan-microposts.herokuapp.com/posts/${id}`)
                 .then((data) => { ui.showAlert('Post Removed', 'alert alert-success'); getPosts(); })
                 .catch((e) => console.log(e));
         }
