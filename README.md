@@ -6,3 +6,5 @@ Steps to run project locally -
 
 1. Run frontend with webpack-dev server - npm run start
 2. Run backend json-server - npm run json:server
+
+If you have some query, feel free to connect with me here -- [Ranjan Kumar Mandal](https://www.linkedin.com/in/ranjan-kumar-m-818367158/)
